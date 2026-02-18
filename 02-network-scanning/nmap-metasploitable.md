@@ -114,12 +114,12 @@ nmap -sV -O 10.0.2.5
 - FTP vsftpd 2.3.4 version has a well-known backdoor 
 - HTTP (port 80) Apache 2.2.8 (Ubuntu) with DAV/2 runs multiple vulnerable web apps
 
-
 **Next Steps Planned**
 
-- Visit the web server (http://10.0.2.5) and take screenshots
-- Try anonymous FTP login
-- Document first successful exploit (most likely vsftpd 2.3.4 backdoor)
+- [x] Visit the web server (http://10.0.2.5) and take screenshots 
+- [x] Run version detection scan (nmap -sV -O 10.0.2.5) **Done** – added detailed table with versions & OS guess
+- [ ] Try anonymous FTP login
+- [ ] Document first successful exploit (most likely vsftpd 2.3.4 backdoor)
 
 **Commands I Want to Remember**
 <!--Save scan to file-->
