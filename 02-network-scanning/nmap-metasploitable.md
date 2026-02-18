@@ -85,10 +85,39 @@ Nmap discovered **23 open TCP ports** on 10.0.2.5.
 - What happens if I try to connect to FTP anonymously?
 - Which service has a well-known public exploit?
 
+## Detailed Scan Results (Service Version + OS Detection)
+
+**Command used**
+nmap -sV -O 10.0.2.5
+
+## Output
+
+| PORT     | STATE | SERVICE       | VERSION                                      |
+|----------|-------|---------------|----------------------------------------------|
+| 21/tcp   | open  | ftp           | vsftpd 2.3.4                                 |
+| 22/tcp   | open  | ssh           | OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0) |
+| 23/tcp   | open  | telnet        | Linux telnetd                                |
+| 25/tcp   | open  | smtp          | Postfix smtpd                                |
+| 53/tcp   | open  | domain        | ISC BIND 9.4.2                               |
+| 80/tcp   | open  | http          | Apache httpd 2.2.8 ((Ubuntu) DAV/2)          |
+| 512/tcp  | open  | exec          | Pnetkit-rsh rexecd                           |
+| 111/tcp  | open  | rpcbind       | 2 (RPC #100000)                            |
+| 139/tcp  | open  | netbios-ssn   | Samba smbd 3.X - 4.X (workgroup: WORKGROUP)  |
+
+- Device type: general purpose
+- Running: Linux 2.6.X
+- OS CPE: cpe:/o:linux:linux_kernel:2.6
+- OS CPE: cpe:/o:linux:linux_kernel:2.6
+- Network Distance: 1 hop
+
+**Key new information I noticed:**
+- FTP vsftpd 2.3.4 version has a well-known backdoor 
+- HTTP (port 80) Apache 2.2.8 (Ubuntu) with DAV/2 runs multiple vulnerable web apps
+
+
 **Next Steps Planned**
 
 - Visit the web server (http://10.0.2.5) and take screenshots
-- Run version detection scan (nmap -sV -O 10.0.2.5)
 - Try anonymous FTP login
 - Document first successful exploit (most likely vsftpd 2.3.4 backdoor)
 
@@ -101,6 +130,11 @@ nmap -p- 10.0.2.5
 
 <!--Aggressive scan (OS, version, scripts, traceroute)-->
 nmap -A 10.0.2.5
+
+
+
+
+
 
 This document is part of my public learning portfolio:
 https://github.com/kainatzahraalvisial/cybersecurity-learning-journey
